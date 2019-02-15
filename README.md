@@ -32,3 +32,4 @@ margin (previously identified lane line).
 This part will make a visualization of the intermediate video at each section described above. The drivable lane region is superimposed on the original video frames (undistorted) along with status of dropped frame for easy
 visualization. 
 
+### Author: Yufei Wang
