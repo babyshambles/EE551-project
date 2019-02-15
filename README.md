@@ -1,4 +1,4 @@
-Self-Driving Lane Lines Detection
+Self-Driving Lane Lines Detection Proposal
 =======
 Introduction
 -------
