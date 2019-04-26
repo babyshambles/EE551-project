@@ -43,8 +43,7 @@ As we know, in the real driving road, shadows and glares are quite challenge for
 which is described below arose.
 A red channel image is used to find white line, and we make a linear combination between the red and saturation channel
 (where sat_hls returns a given color image) to detect the yellow line. And a example for yellow line detection is shown as below:
-![Grayscale image](Read_image/s_hls_red.png)
-![Binary image](Read_image/bin_img.jpg)
+![Grayscale image](Read_image/sat_hls_img.jpg)
 
 ### Birds' Eye Transformation
 As we know, parallel lines appear to converge on an image taken from the front facing camera of the car due to the perspective.
@@ -54,7 +53,7 @@ of the image where we have lower resolution.
 Here we use cv2.getPerspectiveTransform()function to implement the Birds' eye transformation. We also define a function transform()
 to get the warped image from the original. Of course this test image is undistorted before the transformation. And a sample images
 showing original, undistorted and warped image are shown as below:
-![Warped image 1](readme_img/warped_img1.jpg)
+![Warped image](Read_image/warped_img.jpg)
 As we can see, this warped image shows that the converged lines become parallel roughly and this warped image is used for following processing
 
 ## Section 3: The Lane Class
@@ -78,7 +77,11 @@ One of the key ideas is using the minimal order of polynomial functions for line
 ## Section 4: Line finding
 In this part the we use the draw_line function(see in the code) to make the found line visualization.If we implement it on an image, it will draw a lane line, and in case of a video, it will also prints the radius of the road curvature and the offset from the lane center.
 Here we use the test images in the test_images file to do the test and the results are shown as below:
-![readme_img/pipeline1.jpg](readme_img/pipeline1.jpg)
+![Read_image/original_jpg](Read_image/original_img.jpg)
+![Read_image/warped_jpg](Read_image/warped.jpg)
+![Read_image/lineDrawed_jpg](Read_image/lineDrawed.jpg)
+
+
 
 ## Section 5: Visualization
 This part will make a visualization of the intermediate video at each section described above. The drivable lane region is superimposed on the original video frames.
