@@ -31,7 +31,7 @@ This part we use the function cv2.calibrateCamera() to get the camera matrix and
 In this part we define a function named undistortion() to correct the distortion of a certain image. This defined function 
 is mainly using the cv2.undistort() function and camera matrix and distortion coefficients calculated in the last part. And a sample
 results is shown as below:
-![Undistorted sample](Read_image/Undistorted.jpg)
+![Undistorted sample](https://github.com/babyshambles/EE551-project/blob/master/Read_image/Undistorted.jpg)
 
 ## Section 2: Color and Gradient Threshold
 Color and gradient thresholds are used to identify the lane markings. This part is mainly about running the image through an 
