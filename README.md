@@ -77,6 +77,7 @@ One of the key ideas is using the minimal order of polynomial functions for line
 ## Section 4: Line finding
 In this part the we use the draw_line function(see in the code) to make the found line visualization.If we implement it on an image, it will draw a lane line, and in case of a video, it will also prints the radius of the road curvature and the offset from the lane center.
 Here we use the test images in the test_images file to do the test and the results are shown as below:
+
 ![Read_image/original_jpg](https://github.com/babyshambles/EE551-project/blob/master/Read_image/original_img.jpg)
 ![Read_image/warped_jpg](https://github.com/babyshambles/EE551-project/blob/master/Read_image/warped.jpg)
 ![Read_image/lineDrawed_jpg](https://github.com/babyshambles/EE551-project/blob/master/Read_image/lineDrawed.jpg)
