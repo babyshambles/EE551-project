@@ -82,6 +82,6 @@ Here we use the test images in the test_images file to do the test and the resul
 
 ## Section 5: Visualization
 This part will make a visualization of the intermediate video at each section described above. The drivable lane region is superimposed on the original video frames.
-In this part 
+In this part the code chunk get_lane_video performs these actions, in this algorithm line considered as detected only if there are more than Min_pointspoints found and if it is failed to find the line for more than Max_frame video frame, it starts from scratch. And this algerithm also skip the certain narrow and wide lanes. If it dont know the position of the lane for more than Max_frame frames, it will also draw nothing. If only one line of the lane is detected, then the algorithm will use the equidistant function to draw another line.
 
 ### Author: Yufei Wang
