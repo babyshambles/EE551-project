@@ -22,7 +22,7 @@ chessboard pattern image. The main algerithm is, we assuming the chessboard patt
 real world coordinate is (x,y,z). ''Object points'' represents the corners and on the (x,y) plane is the same for each calibration
 image. ''imgpoints'' is append with (x,y) pixel position of each corners in the image plane. And an example of corner detection 
 is shown as below:
-![Image of a chessboard pattern with marked corners](Readme_imgage/Corners_found.jpg)
+![Image of a chessboard pattern with marked corners](https://github.com/babyshambles/EE551-project/blob/master/Read_image/Corners_found.png)
 
 ### Camera Matrix and Distortion Coefficients
 This part we use the function cv2.calibrateCamera() to get the camera matrix and distortion coefficients.
