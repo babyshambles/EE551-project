@@ -25,7 +25,7 @@ chessboard pattern image. The main algerithm is, we assuming the chessboard patt
 real world coordinate is (x,y,z). ''Object points'' represents the corners and on the (x,y) plane is the same for each calibration
 image. ''imgpoints'' is append with (x,y) pixel position of each corners in the image plane. And an example of corner detection 
 is shown as below:
-![Image of a chessboard pattern with marked corners](Readme_imgage/Corners_found.jpg)
+![Image of a chessboard pattern with marked corners](https://github.com/babyshambles/EE551-project/blob/master/Read_image/Corners_found.png)
 
 ### Camera Matrix and Distortion Coefficients
 This part we use the function cv2.calibrateCamera() to get the camera matrix and distortion coefficients.
@@ -34,7 +34,7 @@ This part we use the function cv2.calibrateCamera() to get the camera matrix and
 In this part we define a function named undistortion() to correct the distortion of a certain image. This defined function 
 is mainly using the cv2.undistort() function and camera matrix and distortion coefficients calculated in the last part. And a sample
 results is shown as below:
-![Undistorted sample](Read_image/Undistorted.jpg)
+![Undistorted sample](https://github.com/babyshambles/EE551-project/blob/master/Read_image/Undistorted.jpg)
 
 ## Section 2: Color and Gradient Threshold
 Color and gradient thresholds are used to identify the lane markings. This part is mainly about running the image through an 
@@ -46,7 +46,7 @@ As we know, in the real driving road, shadows and glares are quite challenge for
 which is described below arose.
 A red channel image is used to find white line, and we make a linear combination between the red and saturation channel
 (where sat_hls returns a given color image) to detect the yellow line. And a example for yellow line detection is shown as below:
-![Grayscale image](Read_image/sat_hls_img.jpg)
+![Grayscale image](https://github.com/babyshambles/EE551-project/blob/master/Read_image/sat_hls_img.jpg)
 
 ### Birds' Eye Transformation
 As we know, parallel lines appear to converge on an image taken from the front facing camera of the car due to the perspective.
@@ -56,7 +56,7 @@ of the image where we have lower resolution.
 Here we use cv2.getPerspectiveTransform()function to implement the Birds' eye transformation. We also define a function transform()
 to get the warped image from the original. Of course this test image is undistorted before the transformation. And a sample images
 showing original, undistorted and warped image are shown as below:
-![Warped image](Read_image/warped_img.jpg)
+![Warped image](https://github.com/babyshambles/EE551-project/blob/master/Read_image/warped_img.jpg)
 As we can see, this warped image shows that the converged lines become parallel roughly and this warped image is used for following processing
 
 ## Section 3: The Lane Class
@@ -72,7 +72,7 @@ One important part of line finding is to estimate the radius of the road curvatu
 
 ### Equidistant
 When the case only one line is well determined, we should make another line with equidistant because the line is parallel. While in order to make line fitting robust and stable, the equidistant polinomial should have not higher than 3rd order polynomial. So we creat a list of equidistant points for the given polynomial, these points are on the straight lines and perpendicular to the given polynomial at selected points on a deseired distance. And then use the same order polynomial to fit them. In the code, the np.polyfit is used to fit. And the equidistant plot is shown as below:
-![Plot of an Equidistant](Read_image/equidistant.jpg)
+![Plot of an Equidistant](https://github.com/babyshambles/EE551-project/blob/master/Read_image/equidistant.jpg)
 
 ### Order of the polynomial
 One of the key ideas is using the minimal order of polynomial functions for lines fitting. And in the code, the best_pol_ord chooses such a order. See the code chunk in retail
@@ -80,9 +80,10 @@ One of the key ideas is using the minimal order of polynomial functions for line
 ## Section 4: Line finding
 In this part the we use the draw_line function(see in the code) to make the found line visualization.If we implement it on an image, it will draw a lane line, and in case of a video, it will also prints the radius of the road curvature and the offset from the lane center.
 Here we use the test images in the test_images file to do the test and the results are shown as below:
-![Read_image/original_jpg](Read_image/original_img.jpg)
-![Read_image/warped_jpg](Read_image/warped.jpg)
-![Read_image/lineDrawed_jpg](Read_image/lineDrawed.jpg)
+
+![Read_image/original_jpg](https://github.com/babyshambles/EE551-project/blob/master/Read_image/original_img.jpg)
+![Read_image/warped_jpg](https://github.com/babyshambles/EE551-project/blob/master/Read_image/warped.jpg)
+![Read_image/lineDrawed_jpg](https://github.com/babyshambles/EE551-project/blob/master/Read_image/lineDrawed.jpg)
 
 
 
@@ -90,5 +91,11 @@ Here we use the test images in the test_images file to do the test and the resul
 This part will make a visualization of the intermediate video at each section described above. The drivable lane region is superimposed on the original video frames.
 In this part the code chunk get_lane_video performs these actions, in this algorithm line considered as detected only if there are more than Min_pointspoints found and if it is failed to find the line for more than Max_frame video frame, it starts from scratch. And this algerithm also skip the certain narrow and wide lanes. If it dont know the position of the lane for more than Max_frame frames, it will also draw nothing. If only one line of the lane is detected, then the algorithm will use the equidistant function to draw another line.
 
+<<<<<<< HEAD
 ### Author: Yufei Wang
 >>>>>>> 3fcec88390ec62a9be939df004e100b4be808e15
+=======
+Author: Yufei Wang
+
+Referenced by [CarND-Advanced-Lane-Lines](https://github.com/svanimisetti/CarND-Advanced-Lane-Lines)
+>>>>>>> 49013f84ae4f9606e7f14de82c5706c8183639ef
