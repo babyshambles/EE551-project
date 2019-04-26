@@ -1,5 +1,3 @@
-
-=======
 Self-Driving Lane Lines Detection 
 =======
 Introduction
