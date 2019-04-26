@@ -69,15 +69,19 @@ Then we applied the set of points found by sensor to a polynomial fit, and the b
 One important part of line finding is to estimate the radius of the road curvature. The radius of the curvature is given in meters assuming the curve of the road follows a circle. The radius of lanes is calculated by the polynomial lane lines approximation by the r_cur function by a formula(referenced by a [website](http://www.intmath.com/applications-differentiation/8-radius-curvature.php)). If the radius is bigger than a Max_Radius(here is 10000) then return this Max_Radius value because such big curvature can be considered as a straight line.
 
 ### Equidistant
-When the case only one line is well determined, we should make another line with equidistant because the line is parallel.
+When the case only one line is well determined, we should make another line with equidistant because the line is parallel. While in order to make line fitting robust and stable, the equidistant polinomial should have not higher than 3rd order polynomial. So we creat a list of equidistant points for the given polynomial, these points are on the straight lines and perpendicular to the given polynomial at selected points on a deseired distance. And then use the same order polynomial to fit them. In the code, the np.polyfit is used to fit. And the equidistant plot is shown as below:
+![Plot of an Equidistant](Read_image/equidistant.jpg)
 
-## Section 4: Curve Fitting Strategy
-This function fits a 2nd order polynomial to the image coordinates returned by lane identification algorithm. These coordinates
-could be the centroids of the sliding convolutional windows (newly identified lane line) or all the pixel identified within the
-margin (previously identified lane line). 
+### Order of the polynomial
+One of the key ideas is using the minimal order of polynomial functions for lines fitting. And in the code, the best_pol_ord chooses such a order. See the code chunk in retail
+
+## Section 4: Line finding
+In this part the we use the draw_line function(see in the code) to make the found line visualization.If we implement it on an image, it will draw a lane line, and in case of a video, it will also prints the radius of the road curvature and the offset from the lane center.
+Here we use the test images in the test_images file to do the test and the results are shown as below:
+![readme_img/pipeline1.jpg](readme_img/pipeline1.jpg)
 
 ## Section 5: Visualization
-This part will make a visualization of the intermediate video at each section described above. The drivable lane region is superimposed on the original video frames (undistorted) along with status of dropped frame for easy
-visualization. 
+This part will make a visualization of the intermediate video at each section described above. The drivable lane region is superimposed on the original video frames.
+In this part 
 
 ### Author: Yufei Wang
