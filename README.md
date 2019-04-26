@@ -55,11 +55,21 @@ Here we use cv2.getPerspectiveTransform()function to implement the Birds' eye tr
 to get the warped image from the original. Of course this test image is undistorted before the transformation. And a sample images
 showing original, undistorted and warped image are shown as below:
 ![Warped image 1](readme_img/warped_img1.jpg)
-
+As we can see, this warped image shows that the converged lines become parallel roughly and this warped image is used for following processing
 
 ## Section 3: The Lane Class
 Once the pixels corresponding to the lane lines are dentified in section2, curve fitting can be done to detrmine the driable 
 region, in order to facilitate book-keeping, a python class definiton for the lane making lines was used.
+In this part, image should be analyzed with adaptive virtual sensors which are a string of pixels. These sensors are used to
+find a line in an expected area. When the line point's value minus the mean pixel of the certain sensor is larger than the threshold, the line point is considered found.
+The threshold in every sensor should be selected based on mean value of pixels in the sensor. And how to find a certain perfect threshold in sensor is very challenging.
+Then we applied the set of points found by sensor to a polynomial fit, and the best order of the polynomial should be chosen for every point set  individually.
+
+### Radius of Curvature
+One important part of line finding is to estimate the radius of the road curvature. The radius of the curvature is given in meters assuming the curve of the road follows a circle. The radius of lanes is calculated by the polynomial lane lines approximation by the r_cur function by a formula(referenced by a [website](http://www.intmath.com/applications-differentiation/8-radius-curvature.php)). If the radius is bigger than a Max_Radius(here is 10000) then return this Max_Radius value because such big curvature can be considered as a straight line.
+
+### Equidistant
+When the case only one line is well determined, we should make another line with equidistant because the line is parallel.
 
 ## Section 4: Curve Fitting Strategy
 This function fits a 2nd order polynomial to the image coordinates returned by lane identification algorithm. These coordinates
