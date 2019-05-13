@@ -42,7 +42,8 @@ contains the lane pixels
 As we know, in the real driving road, shadows and glares are quite challenge for lane detection, so here we use a adaptive thresholds
 which is described below arose.
 A red channel image is used to find white line, and we make a linear combination between the red and saturation channel
-(where sat_hls returns a given color image) to detect the yellow line. And a example for yellow line detection is shown as below:
+(where sat_hls returns a given color image) to detect the yellow line. And an example for yellow line detection is shown as below:
+
 ![Grayscale image](https://github.com/babyshambles/EE551-project/blob/master/Read_image/sat_hls_img.jpg)
 
 ### Birds' Eye Transformation
